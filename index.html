@@ -32,6 +32,8 @@
       border-radius: 5px;
     }
     button { background: #003366; color: white; cursor: pointer; }
+
+    /* WhatsApp */
     .wa-float {
       position: fixed;
       width: 60px;
@@ -40,13 +42,16 @@
       right: 20px;
       z-index: 999;
     }
-    /* Dropdown styling */
+
+    /* Dropdown menu */
     .dropdown-btn {
       position: absolute;
       top: 10px;
       right: 10px;
       cursor: pointer;
       font-size: 20px;
+      border: none;
+      background: none;
     }
     .dropdown-menu {
       position: absolute;
@@ -57,6 +62,7 @@
       border-radius: 5px;
       display: none;
       z-index: 1;
+      min-width: 100px;
     }
     .dropdown-menu button {
       display: block;
@@ -68,27 +74,8 @@
       text-align: left;
     }
     .dropdown-menu button:hover { background-color: #eee; }
- .edit-btn {
-    background: none;
-    color: #007bff; /* biru */
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-  }
-
-  .hapus-btn {
-    background: none;
-    color: #dc3545; /* merah */
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-  }
-
-  .produk-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-  }
+    .edit-btn { color: #007bff; font-weight: bold; }
+    .hapus-btn { color: #dc3545; font-weight: bold; }
   </style>
 </head>
 <body>
@@ -118,7 +105,7 @@
       </div>
     </section>
 
-    <!-- WhatsApp Float -->
+    <!-- WhatsApp Button -->
     <a href="https://wa.me/6281234567890" class="wa-float" target="_blank" title="Hubungi via WhatsApp">
       <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
     </a>
@@ -142,7 +129,6 @@
     </section>
   </main>
 
-  <!-- Script -->
   <script>
     const produkList = document.getElementById("produkList");
     const form = document.getElementById("formProduk");
@@ -160,10 +146,10 @@
         const card = document.createElement("div");
         card.className = "card";
         card.innerHTML = `
-          <div class="dropdown-btn" onclick="toggleDropdown(this)">⋮</div>
+          <button class="dropdown-btn" onclick="toggleDropdown(this)">⋮</button>
           <div class="dropdown-menu">
-            <button onclick="editProduk(${index})">Edit</button>
-            <button onclick="hapusProduk(${index})">Hapus</button>
+            <button class="edit-btn" onclick="editProduk(${index})">Edit</button>
+            <button class="hapus-btn" onclick="hapusProduk(${index})">Hapus</button>
           </div>
           <img src="${item.gambar}" alt="${item.nama}" />
           <h3>${item.nama}</h3>
@@ -179,7 +165,7 @@
         if (menu !== btn.nextElementSibling) menu.style.display = "none";
       });
       const menu = btn.nextElementSibling;
-      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
 
     function hapusProduk(index) {
@@ -195,7 +181,7 @@
       document.getElementById("nama").value = produk.nama;
       document.getElementById("deskripsi").value = produk.deskripsi;
       document.getElementById("harga").value = produk.harga;
-      data.splice(index, 1); // hapus dulu, nanti tambahkan lagi saat submit
+      data.splice(index, 1);
       localStorage.setItem("produk", JSON.stringify(data));
       renderProduk();
       showSection("tambah");
