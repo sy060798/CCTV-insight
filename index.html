@@ -52,13 +52,13 @@
       font-size: 20px;
       border: none;
       background: none;
+      color: #000;
     }
     .dropdown-menu {
       position: absolute;
       top: 35px;
       right: 10px;
-      background: white;
-      border: 1px solid #ccc;
+      background: #000;
       border-radius: 5px;
       display: none;
       z-index: 1;
@@ -68,14 +68,20 @@
       display: block;
       width: 100%;
       padding: 8px;
-      background: none;
+      background: #000;
       border: none;
       cursor: pointer;
       text-align: left;
+      color: #fff;
+      font-weight: bold;
     }
-  .dropdown-menu button {background-color: #000; /* hitam */color: #000;/* putih */font-weight: bold;}
-    .edit-btn {color: #000; /* Warna teks hitam */font-weight: bold;}
-    .hapus-btn {color: #000; /* Warna teks hitam */font-weight: bold;}
+    .dropdown-menu button:hover {
+      background: #222;
+    }
+    .edit-btn, .hapus-btn {
+      color: #fff;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -97,7 +103,6 @@
       <h2 style="color: #1a1a1a;">Selamat Datang di Insight CCTV</h2>
       <p style="color: #444444;">Silakan Berbelanja dan Pesan Produk Kami</p>
       <img src="https://cdn.jsdelivr.net/gh/sy060798/gambar/logo.jpeg" alt="TokoKu" style="width: 150px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
-
       <div style="margin-top: 300px; padding: 15px; background-color: #000000; border-radius: 12px; line-height: 1.8; color: white;">
         <strong>📍 Lokasi:</strong> Jl. Contoh No.123, Kota Contoh<br>
         <strong>📷 Instagram:</strong> <a href="https://instagram.com/tokoku" target="_blank" style="color:#aad;">@tokoku</a><br>
