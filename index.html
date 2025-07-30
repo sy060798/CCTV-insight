@@ -102,39 +102,64 @@
   </main>
 
   <script>
-    const produkList = document.getElementById("produkList");
-    const form = document.getElementById("formProduk");
+  const produkList = document.getElementById("produkList");
+  const form = document.getElementById("formProduk");
 
-    function showSection(id) {
-      document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-    }
+  function showSection(id) {
+    document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+  }
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-      const nama = document.getElementById("nama").value;
-      const deskripsi = document.getElementById("deskripsi").value;
-      const harga = document.getElementById("harga").value;
-      const file = document.getElementById("gambar").files[0];
+  // ✅ Fungsi untuk menampilkan produk dari localStorage
+  function renderProduk() {
+    produkList.innerHTML = "";
+    const data = JSON.parse(localStorage.getItem("produk")) || [];
 
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const card = document.createElement("div");
-          card.className = "card";
-          card.innerHTML = `
-            <img src="${e.target.result}" alt="${nama}" />
-            <h3>${nama}</h3>
-            <p>${deskripsi}</p>
-            <p><strong>Rp ${parseInt(harga).toLocaleString("id-ID")}</strong></p>
-          `;
-          produkList.appendChild(card);
-          form.reset();
-          showSection("daftar");
-        };
-        reader.readAsDataURL(file);
-      }
+    data.forEach((item) => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <img src="${item.gambar}" alt="${item.nama}" />
+        <h3>${item.nama}</h3>
+        <p>${item.deskripsi}</p>
+        <p><strong>Rp ${parseInt(item.harga).toLocaleString("id-ID")}</strong></p>
+      `;
+      produkList.appendChild(card);
     });
-  </script>
+  }
+
+  // ✅ Panggil render saat halaman dimuat
+  window.addEventListener("DOMContentLoaded", renderProduk);
+
+  // ✅ Menangani form tambah produk
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const nama = document.getElementById("nama").value;
+    const deskripsi = document.getElementById("deskripsi").value;
+    const harga = document.getElementById("harga").value;
+    const file = document.getElementById("gambar").files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const produkBaru = {
+          nama,
+          deskripsi,
+          harga,
+          gambar: e.target.result
+        };
+
+        const data = JSON.parse(localStorage.getItem("produk")) || [];
+        data.push(produkBaru);
+        localStorage.setItem("produk", JSON.stringify(data));
+
+        renderProduk(); // tampilkan ulang
+        form.reset();
+        showSection("daftar");
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+</script>
 </body>
 </html>
