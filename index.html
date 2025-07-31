@@ -27,11 +27,6 @@
     .card img {
       max-width: 100%; height: 150px; object-fit: cover; border-radius: 8px;
     }
-    input, textarea, button {
-      display: block; margin-top: 10px; width: 100%; padding: 8px; border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button { background: #003366; color: white; cursor: pointer; }
 
     /* WhatsApp */
     .wa-float {
@@ -73,9 +68,8 @@
       cursor: pointer;
       text-align: left;
     }
-  .dropdown-menu button {background-color: #000; /* hitam */color: #000;/* putih */font-weight: bold;}
-    .edit-btn {color: #ffffff; /* Warna teks hitam */font-weight: bold;}
-    .hapus-btn {color: #ffffff; /* Warna teks hitam */font-weight: bold;}
+    .dropdown-menu button { background-color: #000; color: #000; font-weight: bold; }
+    .hapus-btn { color: #ffffff; font-weight: bold; }
   </style>
 </head>
 <body>
@@ -87,7 +81,6 @@
     <div class="nav-links">
       <a href="#" onclick="showSection('beranda')">Beranda</a>
       <a href="#" onclick="showSection('daftar')">Daftar Produk</a>
-      <a href="#" onclick="showSection('tambah')">Tambah</a>
     </div>
   </header>
 
@@ -115,23 +108,10 @@
       <h2>Daftar Produk</h2>
       <div class="produk-grid" id="produkList"></div>
     </section>
-
-    <!-- Tambah Produk -->
-    <section id="tambah" class="section">
-      <h2>Tambah Produk</h2>
-      <form id="formProduk">
-        <input type="text" id="nama" placeholder="Nama Produk" required />
-        <textarea id="deskripsi" placeholder="Deskripsi Produk" required></textarea>
-        <input type="number" id="harga" placeholder="Harga Produk (Rp)" required />
-        <input type="file" id="gambar" accept="image/*" required />
-        <button type="submit">Tambah</button>
-      </form>
-    </section>
   </main>
 
   <script>
     const produkList = document.getElementById("produkList");
-    const form = document.getElementById("formProduk");
 
     function showSection(id) {
       document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
@@ -145,17 +125,16 @@
       data.forEach((item, index) => {
         const card = document.createElement("div");
         card.className = "card";
-        card.innerHTML = 
+        card.innerHTML = `
           <button class="dropdown-btn" onclick="toggleDropdown(this)">⋮</button>
           <div class="dropdown-menu">
-            <button class="edit-btn" onclick="editProduk(${index})">Edit</button>
             <button class="hapus-btn" onclick="hapusProduk(${index})">Hapus</button>
           </div>
           <img src="${item.gambar}" alt="${item.nama}" />
           <h3>${item.nama}</h3>
           <p>${item.deskripsi}</p>
           <p><strong>Rp ${parseInt(item.harga).toLocaleString("id-ID")}</strong></p>
-        ;
+        `;
         produkList.appendChild(card);
       });
     }
@@ -175,43 +154,6 @@
         renderProduk();
       }
     }
-
-    function editProduk(index) {
-      const produk = data[index];
-      document.getElementById("nama").value = produk.nama;
-      document.getElementById("deskripsi").value = produk.deskripsi;
-      document.getElementById("harga").value = produk.harga;
-      data.splice(index, 1);
-      localStorage.setItem("produk", JSON.stringify(data));
-      renderProduk();
-      showSection("tambah");
-    }
-
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-      const nama = document.getElementById("nama").value;
-      const deskripsi = document.getElementById("deskripsi").value;
-      const harga = document.getElementById("harga").value;
-      const file = document.getElementById("gambar").files[0];
-
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const produkBaru = {
-            nama,
-            deskripsi,
-            harga,
-            gambar: e.target.result
-          };
-          data.push(produkBaru);
-          localStorage.setItem("produk", JSON.stringify(data));
-          renderProduk();
-          form.reset();
-          showSection("daftar");
-        };
-        reader.readAsDataURL(file);
-      }
-    });
 
     window.addEventListener("DOMContentLoaded", renderProduk);
   </script>
