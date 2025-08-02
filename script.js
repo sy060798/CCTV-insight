@@ -1,13 +1,9 @@
-<script>
-    document.getElementById('btnBeranda').addEventListener('click', function (e) {
-        e.preventDefault();
-        document.getElementById('berandaSection').style.display = 'block';
-        document.getElementById('koleksiSection').style.display = 'none';
-    });
+function tampilkanKoleksi() {
+  document.getElementById("beranda").classList.add("hidden");
+  document.getElementById("koleksi").classList.remove("hidden");
+}
 
-    document.getElementById('btnKoleksi').addEventListener('click', function (e) {
-        e.preventDefault();
-        document.getElementById('berandaSection').style.display = 'none';
-        document.getElementById('koleksiSection').style.display = 'block';
-    });
-</script>
+function kembaliKeBeranda() {
+  document.getElementById("koleksi").classList.add("hidden");
+  document.getElementById("beranda").classList.remove("hidden");
+}
