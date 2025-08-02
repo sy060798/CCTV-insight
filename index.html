@@ -1,244 +1,218 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>INSIGHT CCTV</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
-    header {
-      display: flex; justify-content: space-between; align-items: center;
-      background: #003366; color: white; padding: 15px 20px;
-    }
-    header .nav-links a {
-      color: white; margin-left: 15px; text-decoration: none; font-weight: bold;
-    }
-    main { padding: 20px; }
-    .section { display: none; }
-    .section.active { display: block; }
-    .produk-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-    }
-    .card {
-      background: white; padding: 15px; border-radius: 12px; box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      text-align: center; position: relative;
-    }
-    .card img {
-      max-width: 100%; height: 150px; object-fit: cover; border-radius: 8px;
-    }
-
-    /* WhatsApp */
-    .wa-float {
-      position: fixed;
-      width: 60px;
-      height: 60px;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999;
-    }
-	.beranda-wrapper {
-	width: 100%;
-	max-width: 1200px;
-	margin: auto;
-	padding: 10px;
-	}
-
-	.beranda-wrapper img {
-	width: 100%;
-	height: auto;
-	max-height: 400px; /* kamu bisa ubah sesuai kebutuhan */
-	border-radius: 12px;
-	object-fit: cover;
-	box-shadow: 0 0 10px rgba(0,0,0,0.1);
-	}
-
-    /* Dropdown menu */
-    .dropdown-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
-      font-size: 20px;
-      border: none;
-      background: none;
-    }
-    .dropdown-menu {
-      position: absolute;
-      top: 35px;
-      right: 10px;
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      display: none;
-      z-index: 1;
-      min-width: 100px;
-    }
-    .dropdown-menu button {
-      display: block;
-      width: 100%;
-      padding: 8px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      text-align: left;
-    }
-    .dropdown-menu button { background-color: #000; color: #000; font-weight: bold; }
-    .hapus-btn { color: #ffffff; font-weight: bold; }
-	
-	/* ✅ Tambahan agar responsif di HP dan PC */
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      header .nav-links {
-        margin-top: 10px;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-      }
-
-      header .nav-links a {
-        margin: 5px 0;
-      }
-
-      .produk-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      }
-
-      .card img {
-        height: auto;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NusaThreads - Gaya Urban, Kualitas Lokal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-image: url('https://placehold.co/1600x900/e2e8f0/334155?text=Koleksi+Fashion+Terbaru');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <div class="logo">
-      <img src="https://cdn.jsdelivr.net/gh/sy060798/gambar/logo.jpeg" alt="Logo Toko" style="height: 24px; vertical-align: middle; margin-right: 8px;">
-      INSIGHT CCTV
-    </div>
-    <div class="nav-links">
-      <a href="#" onclick="showSection('beranda')">Beranda</a>
-      <a href="#" onclick="showSection('daftar')">Produk</a>
-    </div>
-  </header>
+<body class="bg-gray-50 text-gray-800">
 
-  <main>
-    <!-- Beranda -->
-    <section id="beranda" class="section active">
-     <div style="position: relative; height: -150px;"> <!-- wadah -->
-  <h2 style="
-    color: #1a1a1a;
-    position: absolute;
-    top: 50px;        /* Jarak dari atas */
-    left: 30px;       /* Jarak dari kiri */
-    /* right: 20px;   ← bisa aktifkan jika mau geser dari kanan */
-    /* bottom: 10px;  ← bisa aktifkan jika mau geser dari bawah */
-    margin: 0;">
-    Selamat Datang di Insight CCTV</h2>
-</div>
-      <p style="color: #444444;">Silakan Berbelanja dan Pesan Produk Kami</p>
-    <img src="https://cdn.jsdelivr.net/gh/sy060798/gambar/begrond.jfif" 
-     alt="TokoKu" 
-     style="width: 100%; max-width: 100%; height: auto; max-height: 600px; object-fit: cover; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
-      <div style="margin-top: 500px; padding: 15px; background-color: #000000; border-radius: 12px; line-height: 1.8; color: white;">
-        <strong>📍 Lokasi:</strong> Jl. Contoh No.123, Kota Contoh<br>
-        <strong>📷 Instagram:</strong> <a href="https://instagram.com/tokoku" target="_blank" style="color:#aad;">@tokoku</a><br>
-        <strong>📞 WhatsApp:</strong> <a href="https://wa.me/6281234567890" target="_blank" style="color:#aad;">+62 812-3456-7890</a>
-      </div>
-    </section>
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-900">NusaThreads</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#" class="text-gray-600 hover:text-indigo-600">Beranda</a>
+                <a href="#" class="text-gray-600 hover:text-indigo-600">Koleksi</a>
+                <a href="#" class="text-gray-600 hover:text-indigo-600">Tentang Kami</a>
+                <a href="#" class="text-gray-600 hover:text-indigo-600">Kontak</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-gray-600 hover:text-indigo-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+                <button class="text-gray-600 hover:text-indigo-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </button>
+                <button class="text-gray-600 hover:text-indigo-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                </button>
+            </div>
+            <!-- Tombol Menu Mobile -->
+            <div class="md:hidden">
+                <button class="text-gray-600 hover:text-indigo-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
 
-    <!-- WhatsApp Button -->
-<a href="https://wa.me/6281234567890" class="wa-float" target="_blank" title="Hubungi via WhatsApp">
-  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" 
-       alt="WhatsApp"
-       style="width: 80px; height: 80px; max-width: 100%; max-height: 100%;">
-</a>
+    <main>
+        <!-- Hero Section - Bagian Utama untuk Menarik Perhatian -->
+        <section class="hero-bg h-[60vh] md:h-[80vh] flex items-center justify-center text-white">
+            <div class="text-center bg-black bg-opacity-50 p-8 rounded-lg">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight">Temukan Gaya Terbaikmu</h1>
+                <p class="mt-4 text-lg md:text-xl max-w-2xl">Koleksi pilihan untuk tampil percaya diri setiap hari, dibuat dengan bahan berkualitas tinggi.</p>
+                <a href="#" class="mt-8 inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-lg text-lg transition duration-300">
+                    Jelajahi Koleksi
+                </a>
+            </div>
+        </section>
 
-    <!-- Daftar Produk -->
-    <section id="daftar" class="section">
-  <div style="text-align: center;">
-  <h2 style="background-color: #003366; color: white; text-align: center; padding: 15px 30px; border-radius: 10px; margin: 0 auto 20px; display: inline-block;">Daftar Produk</h2></div>
-  <div class="produk-grid">
+        <!-- Featured Products Section - Produk Unggulan -->
+        <section class="py-16 sm:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Produk Unggulan</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Contoh Produk 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <div class="overflow-hidden">
+                            <img src="https://placehold.co/400x500/e2e8f0/334155?text=Produk+1" alt="Produk 1" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-900">Kemeja Katun Klasik</h3>
+                            <p class="mt-2 text-indigo-600 font-bold">Rp 299.000</p>
+                            <a href="#" class="mt-4 inline-block w-full text-center bg-gray-800 text-white py-2 rounded-lg hover:bg-gray-900 transition">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <!-- Contoh Produk 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <div class="overflow-hidden">
+                            <img src="https://placehold.co/400x500/dbeafe/1e3a8a?text=Produk+2" alt="Produk 2" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-900">Celana Chino Modern</h3>
+                            <p class="mt-2 text-indigo-600 font-bold">Rp 349.000</p>
+                            <a href="#" class="mt-4 inline-block w-full text-center bg-gray-800 text-white py-2 rounded-lg hover:bg-gray-900 transition">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <!-- Contoh Produk 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <div class="overflow-hidden">
+                            <img src="https://placehold.co/400x500/fee2e2/991b1b?text=Produk+3" alt="Produk 3" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-900">Jaket Denim Esensial</h3>
+                            <p class="mt-2 text-indigo-600 font-bold">Rp 499.000</p>
+                            <a href="#" class="mt-4 inline-block w-full text-center bg-gray-800 text-white py-2 rounded-lg hover:bg-gray-900 transition">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <!-- Contoh Produk 4 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <div class="overflow-hidden">
+                             <img src="https://placehold.co/400x500/e0e7ff/3730a3?text=Produk+4" alt="Produk 4" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-900">Sneakers Kanvas</h3>
+                            <p class="mt-2 text-indigo-600 font-bold">Rp 429.000</p>
+                            <a href="#" class="mt-4 inline-block w-full text-center bg-gray-800 text-white py-2 rounded-lg hover:bg-gray-900 transition">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Produk 1 -->
-    <div class="card">
-      <img src="https://cdn.jsdelivr.net/gh/sy060798/gambar/logo.jpeg" alt="Kamera CCTV Outdoor" style="height: 160px;">
-      <h3>Kamera CCTV Outdoor</h3>
-      <p>Kamera tahan air untuk luar ruangan dengan night vision.</p>
-      <p><strong>Rp 450.000</strong></p>
-    </div>
+        <!-- Why Us Section - Keunggulan Toko -->
+        <section class="bg-gray-100 py-16 sm:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Kenapa Memilih NusaThreads?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    <div>
+                        <div class="flex justify-center mb-4">
+                            <div class="bg-indigo-100 p-4 rounded-full">
+                                <svg class="w-8 h-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Kualitas Terbaik</h3>
+                        <p class="text-gray-600">Kami hanya menggunakan bahan-bahan pilihan untuk memastikan kenyamanan dan daya tahan produk.</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-center mb-4">
+                            <div class="bg-indigo-100 p-4 rounded-full">
+                                <svg class="w-8 h-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Pembayaran Aman</h3>
+                        <p class="text-gray-600">Transaksi Anda dijamin aman dengan berbagai metode pembayaran terpercaya.</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-center mb-4">
+                            <div class="bg-indigo-100 p-4 rounded-full">
+                                <svg class="w-8 h-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2-2h8a1 1 0 001-1zM21 11V5a2 2 0 00-2-2H9" /></svg>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Pengiriman Cepat</h3>
+                        <p class="text-gray-600">Kami bekerja sama dengan jasa kurir terbaik untuk mengantarkan pesanan Anda secepat mungkin.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Produk 2 -->
-    <div class="card">
-      <img src="https://cdn.jsdelivr.net/gh/sy060798/gambar/logo.jpeg" alt="Paket DVR 4CH" style="height: 160px;">
-      <h3>Paket DVR 4CH</h3>
-      <p>Rekaman aman hingga 4 kamera, cocok untuk rumah & kantor.</p>
-      <p><strong>Rp 1.200.000</strong></p>
-    </div>
+        <!-- Testimonials Section - Testimoni Pelanggan -->
+        <section class="py-16 sm:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Apa Kata Pelanggan Kami</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <p class="text-gray-600 italic">"Kualitas bajunya di luar ekspektasi! Bahannya adem dan jahitannya rapi banget. Pasti akan beli lagi di sini."</p>
+                        <p class="mt-4 font-bold text-gray-900">- Budi Santoso</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <p class="text-gray-600 italic">"Pengirimannya cepat, packingnya juga aman. Ukuran celananya pas banget sesuai deskripsi. Recommended seller!"</p>
+                        <p class="mt-4 font-bold text-gray-900">- Anita Wijaya</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <p class="text-gray-600 italic">"Suka banget sama desainnya yang simpel tapi tetap stylish. Cocok buat dipakai sehari-hari. Pelayanannya juga ramah."</p>
+                        <p class="mt-4 font-bold text-gray-900">- Rina Maulina</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <!-- Produk 3 -->
-    <div class="card">
-      <img src="https://cdn.jsdelivr.net/gh/sy060798/gambar/logo.jpeg" alt="Kabel CCTV 20m" style="height: 160px;">
-      <h3>Kabel CCTV 20m</h3>
-      <p>Kabel berkualitas tinggi untuk pemasangan kamera CCTV.</p>
-      <p><strong>Rp 90.000</strong></p>
-    </div>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">NusaThreads</h3>
+                    <p class="text-gray-400">Menyediakan fashion berkualitas dengan sentuhan gaya lokal untuk penampilan terbaikmu.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tautan Cepat</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Beranda</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Koleksi</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Tentang Kami</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Kontak</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Bantuan</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Cara Pemesanan</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Ikuti Kami</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">Instagram</a>
+                        <a href="#" class="text-gray-400 hover:text-white">Facebook</a>
+                        <a href="#" class="text-gray-400 hover:text-white">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 NusaThreads. Semua Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
 
-
-  </div>
-</section>
-  </main>
-
-  <script>
-    const produkList = document.getElementById("produkList");
-
-    function showSection(id) {
-      document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-    }
-
-    let data = JSON.parse(localStorage.getItem("produk")) || [];
-
-    function renderProduk() {
-      produkList.innerHTML = "";
-      data.forEach((item, index) => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          <button class="dropdown-btn" onclick="toggleDropdown(this)">⋮</button>
-          <div class="dropdown-menu">
-            <button class="hapus-btn" onclick="hapusProduk(${index})">Hapus</button>
-          </div>
-          <img src="${item.gambar}" alt="${item.nama}" />
-          <h3>${item.nama}</h3>
-          <p>${item.deskripsi}</p>
-          <p><strong>Rp ${parseInt(item.harga).toLocaleString("id-ID")}</strong></p>
-        `;
-        produkList.appendChild(card);
-      });
-    }
-
-    function toggleDropdown(btn) {
-      document.querySelectorAll(".dropdown-menu").forEach(menu => {
-        if (menu !== btn.nextElementSibling) menu.style.display = "none";
-      });
-      const menu = btn.nextElementSibling;
-      menu.style.display = menu.style.display === "block" ? "none" : "block";
-    }
-
-    function hapusProduk(index) {
-      if (confirm("Yakin ingin menghapus produk ini?")) {
-        data.splice(index, 1);
-        localStorage.setItem("produk", JSON.stringify(data));
-        renderProduk();
-      }
-    }
-
-    window.addEventListener("DOMContentLoaded", renderProduk);
-  </script>
 </body>
 </html>
