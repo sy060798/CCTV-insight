@@ -58,31 +58,86 @@
   <section id="beranda" class="section text-center py-20">
     <h1 class="text-3xl font-bold mb-6">Selamat Datang di NusaThreads</h1>
     <p class="mb-6">Temukan gaya urban terbaik dengan kualitas lokal terbaik.</p>
-    <button onclick="tampilkanKoleksi()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded">
-      Lihat Koleksi Kami
-    </button>
+	<!-- Featured Products Section - Produk Unggulan -->
+        <section class="py-16 sm:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Produk Unggulan</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+				
+				<!-- Contoh Produk 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <div class="overflow-hidden">
+                            <img src="https://placehold.co/400x500/e2e8f0/334155?text=Produk+1" alt="Produk 1" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-900">Kemeja Katun Klasik</h3>
+                            <p class="mt-2 text-indigo-600 font-bold">Rp 299.000</p>
+                            <a href="#" class="mt-4 inline-block w-full text-center bg-gray-800 text-white py-2 rounded-lg hover:bg-gray-900 transition">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <!-- Contoh Produk 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <div class="overflow-hidden">
+                            <img src="https://placehold.co/400x500/dbeafe/1e3a8a?text=Produk+2" alt="Produk 2" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-900">Celana Chino Modern</h3>
+                            <p class="mt-2 text-indigo-600 font-bold">Rp 349.000</p>
+                            <a href="#" class="mt-4 inline-block w-full text-center bg-gray-800 text-white py-2 rounded-lg hover:bg-gray-900 transition">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <!-- Contoh Produk 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <div class="overflow-hidden">
+                            <img src="https://placehold.co/400x500/fee2e2/991b1b?text=Produk+3" alt="Produk 3" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-900">Jaket Denim Esensial</h3>
+                            <p class="mt-2 text-indigo-600 font-bold">Rp 499.000</p>
+                            <a href="#" class="mt-4 inline-block w-full text-center bg-gray-800 text-white py-2 rounded-lg hover:bg-gray-900 transition">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <!-- Contoh Produk 4 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <div class="overflow-hidden">
+                             <img src="https://placehold.co/400x500/e0e7ff/3730a3?text=Produk+4" alt="Produk 4" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-900">Sneakers Kanvas</h3>
+                            <p class="mt-2 text-indigo-600 font-bold">Rp 429.000</p>
+                            <a href="#" class="mt-4 inline-block w-full text-center bg-gray-800 text-white py-2 rounded-lg hover:bg-gray-900 transition">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
   </section>
+  
+ <!-- Koleksi -->
+  <section id="Koleksi" class="section">
+  <div style="text-align: center;">
+  <h2 style="background-color: #003366; color: white; text-align: center; padding: 15px 30px; border-radius: 10px; margin: 0 auto 20px; display: inline-block;">Daftar Produk</h2></div>
+  <div class="produk-grid">
 
-  <!-- Koleksi -->
-  <section id="koleksi" class="section text-center py-20 hidden">
-    <h2 class="text-2xl font-semibold mb-4">Koleksi Terbaru</h2>
-    <p class="mb-6">Kami menghadirkan produk terbaik pilihan.</p>
-    <button onclick="kembaliKeBeranda()" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded">
-      Kembali ke Beranda
-    </button>
+    <!-- Produk 1 -->
+    <div class="card">
+      <img src="https://cdn.jsdelivr.net/gh/sy060798/gambar/logo.jpeg" alt="Kamera CCTV Outdoor" style="height: 160px;">
+      <h3>Kamera CCTV Outdoor</h3>
+      <p>Kamera tahan air untuk luar ruangan dengan night vision.</p>
+      <p><strong>Rp 450.000</strong></p>
+    </div>
+
+    </div>
   </section>
-
-  <!-- Script -->
-  <script>
-    function tampilkanKoleksi() {
-      document.getElementById("beranda").classList.add("hidden");
-      document.getElementById("koleksi").classList.remove("hidden");
-    }
-
-    function kembaliKeBeranda() {
-      document.getElementById("koleksi").classList.add("hidden");
-      document.getElementById("beranda").classList.remove("hidden");
-    }
-  </script>
+ <!-- Script -->
+<script>
+  function tampilkanKoleksi() {
+    document.getElementById("beranda").classList.add("hidden");
+    document.getElementById("koleksi").classList.remove("hidden");
+  }
+  function kembaliKeBeranda() {
+    document.getElementById("koleksi").classList.add("hidden");
+    document.getElementById("beranda").classList.remove("hidden");
+  }
+</script>
 </body>
 </html>
